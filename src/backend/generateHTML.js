@@ -2,8 +2,8 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 
 const INDEX_PATH = './data/index.json';
-const DIST_PATH = './src/templates';
-const MAIN_PATH = './src/frontend/main.js';
+const DIST_PATH = './dist';
+const MAIN_JS_PATH = 'frontend/main.js';
 
 async function readJson(filePath) {
 	console.log('reading: ', filePath);
@@ -81,7 +81,7 @@ function generateIndexHTML(data) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="/src/frontend/main.js" type="module"></script>
+		<script src="${MAIN_JS_PATH}" type="module"></script>
 		<title>categories</title>
 		<link rel="stylesheet" href="./styles.css">
 	</head>
@@ -148,7 +148,7 @@ function generateQuestionsHTML(data) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="/src/frontend/main.js" type="module"></script>
+		<script src="${MAIN_JS_PATH}" type="module"></script>
 		<title>questions</title>
 		<link rel="stylesheet" href="./styles.css">
 	</head>
