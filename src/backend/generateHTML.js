@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 const INDEX_PATH = './data/index.json';
 const DIST_PATH = './dist';
 const MAIN_JS_PATH = 'frontend/main.js';
+const QUIZ_JS_PATH = 'frontend/quiz.js';
 
 async function readJson(filePath) {
 	console.log('reading: ', filePath);
@@ -32,7 +33,7 @@ async function writeDist() {
 	}
 }
 
-async function main() {
+export async function initHTML() {
 	console.log('hello world');
 
 	const indexData = await readJson(INDEX_PATH);
@@ -83,7 +84,7 @@ function generateIndexHTML(data) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="${MAIN_JS_PATH}" type="module"></script>
 		<title>categories</title>
-		<link rel="stylesheet" href="./styles.css">
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 		<header>
@@ -115,18 +116,16 @@ function generateQuestionsHTML(data) {
 	let num_questions = 0;
 
     const questions = content.questions.map((question, question_index) => {
-		let correct;
 		let answers;
 		num_questions++;
 		
 		try {
 			answers = shuffle(question.answers)
 				.map((answer, answer_index) => {
-					if (answer.correct == true) correct = answer_index;
 					return `
 <div class="answer">
 	<label>
-		<input type="radio" name="question${question_index}" value="answer${answer_index}">
+		<input type="radio" name="question${question_index}" value="answer${answer_index}" data-is-correct="${answer.correct}">
 		${escapeHTML(answer.answer)}
 	</label>
 </div>`;})
@@ -137,7 +136,7 @@ function generateQuestionsHTML(data) {
 			return;
 		}
 		const header = `
-<div class="question" data-correct-answer="answer${correct}">
+<div class="question">
 	<pre>${escapeHTML(question.question)}</pre>`;
 		return `${header}${answers}</div>`;
 	}).join(`\n`);
@@ -148,7 +147,7 @@ function generateQuestionsHTML(data) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="${MAIN_JS_PATH}" type="module"></script>
+		<script src="${QUIZ_JS_PATH}" type="module"></script>
 		<title>questions</title>
 		<link rel="stylesheet" href="./styles.css">
 	</head>
@@ -157,7 +156,7 @@ function generateQuestionsHTML(data) {
 		<h1>${data.title} Questions</h1>
 	<form id ="quizForm" data-total-questions="${num_questions}">`;
 
-    const footer = `<button type="button" id="submitButton">Submit</button>
+    const footer = `<button type="button" id="submitButton" disabled>Submit</button>
 </form>
 </div>`;
 	return `${header}\n${questions}\n${footer}`;
@@ -189,5 +188,3 @@ function shuffle(array) {
 
 	return array;
 }
-
-main();

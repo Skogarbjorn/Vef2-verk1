@@ -8,15 +8,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "run-s build:*",
     "build:clean": "rimraf dist .temp",
-    "build:generate": "node src/backend/generateHTML.js",
-	"build:copy": "mkdir dist/frontend && cp -r src/frontend/ dist/",
-	"preview": "vite preview",
-	"dev": "vite dev"
+    "build:generate": "node src/backend/init.js",
+    "build:copy": "mkdir dist/frontend && cp -r src/frontend/ dist/",
+    "dev": "browser-sync start --server \"dist\" --files \"**/*.html, **/*.css, **/*.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browser-sync": "^3.0.3",
     "npm-run-all": "^4.1.5",
     "rimraf": "^6.0.1"
   },
