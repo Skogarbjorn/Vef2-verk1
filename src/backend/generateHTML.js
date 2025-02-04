@@ -43,10 +43,10 @@ async function main() {
 	}
 
 
-	let allData = (await Promise.all(
+	const allData = (await Promise.all(
 		indexData.map(async (item) => {
 			const filePath = `./data/${item.file}`;
-			let fileData = await readJson(filePath);
+			const fileData = await readJson(filePath);
 			return fileData ? { ...item, content: 
 				(fileData.title &&
 				fileData.questions) ? fileData : null } : null;
@@ -57,7 +57,7 @@ async function main() {
 	await writeHTML(generateIndexHTML(allData), "index");
 
 	allData.map(async (data) => {
-		let html = generateQuestionsHTML(data);
+		const html = generateQuestionsHTML(data);
 		await writeHTML(html, data.file.replace('.json', ''))
 	});
 }
@@ -102,14 +102,6 @@ function generateIndexHTML(data) {
 </html>`;
 
 	return indexHTML;
-}
-
-async function createPage(html, name) {
-	try {
-		await fs.writeFile(path.join(DIST_PATH, `${name}.html`), html);
-	} catch (error) {
-		console.error(`Error writing ${name}.html:`, error.message);
-	}
 }
 
 function generateQuestionsHTML(data) {
