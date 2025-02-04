@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="/src/frontend/main.js" type="module"></script>
+		<title>questions</title>
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body>
+		<div class="quiz-container">
+		<h1>JavaScript Questions</h1>
+	<form id ="quizForm" data-total-questions="2">
+
+<div class="question" data-correct-answer="answer0">
+	<pre>Hvað er skrifað út eftir að eftirfarandi kóði er keyrður?
+
+const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const іtem = items
+  .map((i) =&gt; i * 2)
+  .filter(
+    (i) =&gt; i &lt; 10
+  )
+  .find((i) =&gt; i &gt; 6)
+
+
+console.log(item);</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer0">
+		8
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer1">
+		[8]
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer2">
+		Uncaught ReferenceError: item is not defined
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer3">
+		undefined
+	</label>
+</div></div>
+
+<div class="question" data-correct-answer="answer3">
+	<pre>Þegar við berum saman gildi í JavaScript ættum við alltaf að nota þrjú samasem merki (`===`) því að</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer0">
+		Við ættum alltaf að nota tvö samasem merki, ekki þrjú því þá byrjum við á að bera saman týpur gilda og komumst þannig framhjá type coercion.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer1">
+		Þessi samanburður nýtir lógíska virkja sem virka aðeins í tvístæðum.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer2">
+		Þessi samanburður kemst framhjá truthy og falsy gildum og skilar eingöngu réttum niðurstöðum fyrir primitive gildi.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer3">
+		Þessi samanburður byrjar á að bera saman týpur gilda og kemst því framhjá type coercion sem gerist með samanburð með tveimur samasem merkjum.
+	</label>
+</div></div>
+
+<button type="button" id="submitButton">Submit</button>
+</form>
+</div>

@@ -8,7 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "run-s build:*",
     "build:clean": "rimraf dist",
-    "build:generate": "node src/backend/generateHTML.js"
+    "build:generate": "node src/backend/generateHTML.js",
+	"build:vite": "vite build",
+	"preview": "vite preview",
+	"dev": "vite dev"
   },
   "keywords": [],
   "author": "",

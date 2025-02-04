@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="/src/frontend/main.js" type="module"></script>
+		<title>questions</title>
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body>
+		<div class="quiz-container">
+		<h1>CSS Questions</h1>
+	<form id ="quizForm" data-total-questions="4">
+
+<div class="question" data-correct-answer="answer2">
+	<pre>Fyrir eftirfarandi HTML / for the following HTML:
+
+
+&lt;div class=&quot;text&quot;&gt;
+  &lt;h1 class=&quot;important text__title&quot;&gt;Halló heimur&lt;/p&gt;
+&lt;/div&gt;
+ 
+
+Er skilgreint CSS / there is defined CSS:
+
+
+.text {
+  font-size: 10px;
+  color: green;
+}
+
+.text .text__title {
+  font-size: 1.5em;
+}
+
+.important {
+  font-size: 2em;
+  color: red;
+}
+
+ 
+
+Hvert af eftirfarandi er satt fyrir textann „Halló heimur“ eftir að búið er að reikna gildi?</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer0">
+		font-size: 15px;, color: red;
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer1">
+		font-size: 20px;, color: red;
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer2">
+		font-size: 20px;, color: green;
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question0" value="answer3">
+		font-size: 15px;, color: green;
+	</label>
+</div></div>
+
+<div class="question" data-correct-answer="answer0">
+	<pre>Ef við erum að nota nýtt gildi fyrir lit í CSS sem er ekki víst að sé stutt í öllum vöfrum, þá ættum við að</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer0">
+		Skilgreina fallback gildi á undan nýja gildinu sem væri notað í stað þess ef það er ekki stutt
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer1">
+		Setja upp JavaScript virkni sem bendir notanda á að sækja nýjann vafra sem styður gildið.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer2">
+		Skilgreina fallback gildi á eftir nýja gildinu sem væri notað í stað þess ef það er ekki stutt.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question1" value="answer3">
+		Þetta er ekki stutt í CSS.
+	</label>
+</div></div>
+
+<div class="question" data-correct-answer="answer0">
+	<pre>Í verkefnum höfum við unnið með „containers“ og „items“ sem hugtök, hvað á það við?</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question2" value="answer0">
+		„Flex container“ og „flex items; „grid container“ og „grid items“: greinarmunur á foreldri og börnum þegar flexbox og CSS grid er notað.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question2" value="answer1">
+		„Flex container“ og „flex items: greinarmunur á foreldri og börnum eingngu þegar flexbox er notað.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question2" value="answer2">
+		„Grid container“ og „grid items“: greinarmunur á foreldri og börnum eingöngu þegar grid er notað.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question2" value="answer3">
+		Hugtök sem eru notuð með `querySelectorAll`: „container“ er það element sem leitað er undir, „items“ það sem er skilað.
+	</label>
+</div></div>
+
+<div class="question" data-correct-answer="answer0">
+	<pre>Þegar við notum flexbox hvað af eftirfarandi er satt? Gerið ráð fyrir að skjal sé lesið frá vinstri til hægri.</pre>
+<div class="answer">
+	<label>
+		<input type="radio" name="question3" value="answer0">
+		Höfum skilgreinda tvo ása: aðalás og krossás sem eru hornréttir; sjálfgefin röðun er á aðalás frá vinstri til hægri.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question3" value="answer1">
+		Höfum skilgreinda tvo ása: aðalás og krossás sem eru samsíða; sjálfgefin röðun er á krossás frá vinstri til hægri.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question3" value="answer2">
+		Höfum skilgreinda tvo ása: aðalás og krossás sem eru samsíða; sjálfgefin röðun er á aðalás frá vinstri til hægri.
+	</label>
+</div>
+
+<div class="answer">
+	<label>
+		<input type="radio" name="question3" value="answer3">
+		Höfum skilgreinda tvo ása: aðalás og krossás sem eru hornréttir; sjálfgefin röðun er á krossás frá vinstri til hægri.
+	</label>
+</div></div>
+<button type="button" id="submitButton">Submit</button>
+</form>
+</div>
