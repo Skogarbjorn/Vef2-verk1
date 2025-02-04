@@ -1,12 +1,18 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
-	root: '.',
+	root: './',
 	server: {
-		open: '/dist/index.html',
+		open: true,
+		watch: {
+			usePolling: true,
+		},
 	},
 	build: {
+		minify: false,
 		outDir: './dist',
+		emptyOutDir: false,
 	},
 });
 

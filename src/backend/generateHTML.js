@@ -85,7 +85,6 @@ function generateIndexHTML(data) {
 		<link rel="stylesheet" href="./styles.css">
 	</head>
 	<body>
-		<script type="module" src="${MAIN_PATH}"></script>
 		<header>
 		    <h1>categories</h1>
 		</header>
