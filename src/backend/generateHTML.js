@@ -6,12 +6,12 @@ const DIST_PATH = './dist/';
 const MAIN_PATH = './src/frontend/main.js';
 
 async function readJson(filePath) {
-	//console.log('reading: ', filePath);
+	console.log('reading: ', filePath);
 	try {
 		const data = await fs.readFile(path.resolve(filePath), 'utf-8');
 		return JSON.parse(data);
 	} catch (error) {
-		//console.error(`Error reading file ${filePath}: `, error.message);
+		console.error(`Error reading file ${filePath}: `, error.message);
 		return null;
 	}
 }
@@ -19,8 +19,16 @@ async function readJson(filePath) {
 async function writeHTML(html, name) {
 	try {
 		await fs.writeFile(path.join(DIST_PATH, `${name}.html`), html);
-	} catch(error) {
-		console.error("Error writing to html:". error.message);
+	} catch (error) {
+		console.error("Error writing to html:", error.message);
+	}
+}
+
+async function writeDist() {
+	try {
+		await fs.mkdir(DIST_PATH);
+	} catch (error) {
+		console.error("Error writing dist/ folder:", error.message);
 	}
 }
 
@@ -44,6 +52,8 @@ async function main() {
 				fileData.questions) ? fileData : null } : null;
 		}))).filter((item) => item != null && item.content != null);
 
+	await writeDist();
+
 	await writeHTML(generateIndexHTML(allData), "index");
 
 	allData.map(async (data) => {
@@ -64,8 +74,6 @@ function generateIndexHTML(data) {
 			}
 		})
 		.join('\n');
-
-	console.log(links);
 
 	const indexHTML = `
 <!DOCTYPE html>
@@ -132,7 +140,7 @@ function generateQuestionsHTML(data) {
 </div>`;})
 				.join('\n');
 		} catch(error) {
-			//console.error("Error generating answers:", error.message);
+			console.error("Error generating answers:", error.message);
 			num_questions--;
 			return;
 		}
@@ -173,7 +181,7 @@ function escapeHTML(input) {
 
 function shuffle(array) {
 	if (array.constructor !== Array) {
-		//console.error("Trying to randomize a non-array object");
+		console.error("Trying to randomize a non-array object");
 		return null;
 	}
 	let currentIndex = array.length;
