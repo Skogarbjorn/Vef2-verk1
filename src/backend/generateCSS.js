@@ -1,24 +1,24 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import fs from "node:fs/promises";
+import path from "node:path";
 
-const DIST_PATH = './dist';
+const DIST_PATH = "./dist";
 
 export async function initCSS() {
-	await writeCSS(generateCSS(), "styles");
+  await writeCSS(generateCSS(), "styles");
 }
 
 async function writeCSS(css, name) {
-	try {
-		await fs.writeFile(path.join(DIST_PATH, `${name}.css`), css);
-	} catch (error) {
-		console.error("Error writing to html:", error.message);
-	}
+  try {
+    await fs.writeFile(path.join(DIST_PATH, `${name}.css`), css);
+  } catch (error) {
+    console.error("Error writing to html:", error.message);
+  }
 }
 
 function generateCSS() {
-	return `
+  return `
 * {
-    margin: 0;
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -102,14 +102,14 @@ ul {
 }
 
 footer {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #fff;
-    color: #adadad;
-    width: 100%;
-    text-align: center;
-    font-size: 0.9rem;
-    border-radius: 5px;
+	margin-top: 20px;
+	padding: 15px;
+	background-color: #fff;
+	color: #adadad;
+	width: 100%;
+	text-align: center;
+	font-size: 0.9rem;
+	border-radius: 5px;
 }
 
 .quiz-container {
