@@ -21,19 +21,23 @@ function handleSubmit() {
 		const selectedAnswer = question.querySelector('input:checked');
 		const correctAnswer = question.querySelector('input[data-is-correct="true"]');
 
-		showAnswerFeedback(correctAnswer, selectedAnswer)
+		removeAnswerFeedback(question);
+		showAnswerFeedback(correctAnswer, selectedAnswer);
+	});
+}
+
+function removeAnswerFeedback(question) {
+	const answers = Array.from(question.querySelectorAll('input'))
+	answers.forEach((answer) => {
+		answer.classList.remove('correct', 'incorrect');
 	});
 }
 
 function showAnswerFeedback(correctAnswer, selectedAnswer) {
-	selectedAnswer.classList.remove('correct', 'incorrect');
-	correctAnswer.classList.remove('correct', 'incorrect');
-
 	if (correctAnswer === selectedAnswer) {
 		selectedAnswer.classList.add('correct');
 	} else {
 		selectedAnswer.classList.add('incorrect');
 		correctAnswer.classList.add('correct');
 	}
-	console.log("gaming");
 }

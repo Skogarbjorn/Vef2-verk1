@@ -69,7 +69,9 @@ function generateIndexHTML(data) {
 	const links = data
 		.map((item) => {
 			try {
-				return `<li><a href="./${item.file.replace('.json', '.html')}">${item.title}</a></li>`
+				return `<div class="mainLink">
+					<li><a href="./${item.file.replace('.json', '.html')}">${item.title}</a></li>
+					</div>`
 			} catch (error) {
 				console.error('Error generating category link:', error.message);
 			}
@@ -87,18 +89,24 @@ function generateIndexHTML(data) {
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
+		<div class="categoryDiv">
 		<header>
-		    <h1>categories</h1>
+		    <h1>Categories</h1>
 		</header>
 		<main>
-		     <p>${description}</p>
-		     <ul>
-		         ${links}
-	         </ul>
+			<div class="mainDescription">
+				 <p>${description}</p>
+			</div>
+			<div class="mainCategoryList">
+				 <ul>
+					 ${links}
+				 </ul>
+			</div>
 		</main>
 		<footer>
 		    <p>&copy; gamer quiz</p>
 		</footer>
+		</div>
 	</body>
 </html>`;
 
@@ -156,7 +164,9 @@ function generateQuestionsHTML(data) {
 		<h1>${data.title} Questions</h1>
 	<form id ="quizForm" data-total-questions="${num_questions}">`;
 
-    const footer = `<button type="button" id="submitButton" disabled>Submit</button>
+    const footer = `<div class="buttonDiv">
+		<button type="button" id="submitButton" disabled>Submit</button>
+	</div>
 </form>
 </div>`;
 	return `${header}\n${questions}\n${footer}`;
