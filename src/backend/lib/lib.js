@@ -1,6 +1,5 @@
 export function shuffle(array) {
   if (array.constructor !== Array) {
-    console.error("Trying to randomize a non-array object");
     return null;
   }
   let currentIndex = array.length;
