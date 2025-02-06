@@ -4,6 +4,13 @@ import pluginJs from "@eslint/js";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {languageOptions: { globals: globals.browser }},
+  {
+		files: ["src/frontend/**/*.js"],
+		languageOptions: { globals: globals.browser }
+	},
+  {
+		files: ["src/backend/**/*.js"],
+		languageOptions: { globals: globals.node }
+	},
   pluginJs.configs.recommended,
 ];

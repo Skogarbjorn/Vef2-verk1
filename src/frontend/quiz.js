@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("quizForm");
   const questions = Array.from(form.querySelectorAll(".question"));
-  const submitButton = document.getElementById("submitButton");
+  const submitButton = document.getElementById("submit-button");
 
   updateSubmitButtonState();
 
